@@ -2,6 +2,8 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from config import UI_URL
+
 
 class ChitaiGorodUI:
     def __init__(self):
@@ -11,7 +13,7 @@ class ChitaiGorodUI:
         """
            Зайти на сайт
         """
-        self.driver.get("https://www.chitai-gorod.ru/")
+        self.driver.get(UI_URL)
 
     def click_target_button(self):
         """

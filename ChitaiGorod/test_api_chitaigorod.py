@@ -1,11 +1,17 @@
-import requests
+import pytest
 from api_chitaigorod import ChitaiGorodAPI
+from config import API_URL
 
 
-url = ChitaiGorodAPI("https://web-gate.chitai-gorod.ru/api/v2search/product")
+url = ChitaiGorodAPI(API_URL)
 
-
-def test_search_book_name_positive():
-    title = "маугли"
-    result = url.serch_product(phrase=title)
+@pytest.mark.parametrize("title", [
+    "маугли",
+    "джоан роулинг",
+    "1984",
+    "война и мир"
+])
+def test_search_book_name_positive(title):
+    result = url.search_product(phrase=title)
     assert result.status_code == 200
+    assert result.json()["data"]["attributes"]["transformedPhrase"] == title

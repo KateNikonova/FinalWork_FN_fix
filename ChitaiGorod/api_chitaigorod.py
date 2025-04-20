@@ -1,16 +1,17 @@
 import requests
+from config import MY_TOKEN, MY_USER_AGENT
 
 
-key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDUxNTA3MDIsImlhdCI6MTc0NDk4MjcwMiwiaXNzIjoiL2FwaS92MS9hdXRoL2Fub255bW91cyIsInN1YiI6IjY5ZmFjNTlmMjY1MTVjYjE3OTI0OGQxYjQ0NzkyNjE5ODM1NjYwZmUwMDA5YWFiNzI4ZjQ0YTNiMjgzYWIyMDUiLCJ0eXBlIjoxMH0.VOSokSy_UG_CcDAe1m3vtc1q2T_IQ-KDVR3ae-bMqNU"
 my_headers = {
-    'Authorization': f'Bearer {key}'
+    'authorization': f'Bearer {MY_TOKEN}',
+    'User-Agent': MY_USER_AGENT
     }
 
 class ChitaiGorodAPI:
     def __init__(self, url):
         self.url = url
 
-    def serch_product(self,phrase):
+    def search_product(self,phrase):
         params = {
             'phrase': phrase
             }
