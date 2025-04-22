@@ -1,5 +1,5 @@
 import pytest
-from api_chitaigorod import ChitaiGorodAPI
+from pages.api_chitaigorod import ChitaiGorodAPI
 from config import API_URL
 
 
